@@ -1,17 +1,18 @@
 {
-  "engines":{
-    "node": "20.15.1"
-  },
   "name": "majorproject",
   "version": "1.0.0",
+  "description": "Charumeena's Major Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Charumeena",
   "license": "ISC",
-  "description": "charumeena",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
     "cloudinary": "^2.6.1",
     "connect-flash": "^0.1.1",
@@ -30,5 +31,8 @@
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
