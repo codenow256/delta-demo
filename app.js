@@ -117,6 +117,9 @@ app.use("/",userRouter);
         console.log("sample was saved");
         res.send("successful testing");
 });*/
+app.get("/", (req, res) => {
+  res.render("index.ejs");
+});
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Page not Found!"));
 });
