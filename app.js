@@ -118,7 +118,7 @@ app.use("/",userRouter);
         res.send("successful testing");
 });*/
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  res.render("listings/index"); 
 });
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Page not Found!"));
