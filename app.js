@@ -6,7 +6,7 @@ if(process.env.NODE_ENV != "production"){
 const express=require("express");
 const app=express();
 const mongoose=require("mongoose");
-//const Listing = require("./models/listing.js");
+const Listing = require("./models/listing.js");
 const path=require("path");
 const methodOverride=require("method-override");
 const ejsMate=require("ejs-mate");
@@ -117,9 +117,16 @@ app.use("/",userRouter);
         console.log("sample was saved");
         res.send("successful testing");
 });*/
-app.get("/", (req, res) => {
-  res.render("listings/index"); 
+
+app.get("/", async (req, res, next) => {
+  try {
+    const allListings = await Listing.find({});
+    res.render("listings/index", { allListings });
+  } catch (err) {
+    next(err); // send to error handler
+  }
 });
+
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Page not Found!"));
 });
